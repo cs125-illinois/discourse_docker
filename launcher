@@ -89,7 +89,7 @@ git_rec_version='1.8.0'
 config_file=containers/"$config".yml
 cidbootstrap=cids/"$config"_bootstrap.cid
 local_discourse=local_discourse
-image="discourse/base:2.0.20191219-2109"
+image="discourse/base:2.0.20200220-2221"
 docker_path=`which docker.io 2> /dev/null || which docker`
 git_path=`which git`
 
@@ -799,7 +799,7 @@ case "$command" in
           do
             args[$j]=${BASH_ARGV[$i]}
           done
-          exec /bin/bash $0 "${args[@]}" # $@ is empty, because of shift at the beginning. Use BASH_ARGV instead.
+          exec bash $0 "${args[@]}" # $@ is empty, because of shift at the beginning. Use BASH_ARGV instead.
 
         elif [ $REMOTE = $BASE ]; then
           echo "Your version of Launcher is ahead of origin"
